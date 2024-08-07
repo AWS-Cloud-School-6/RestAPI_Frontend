@@ -1,0 +1,106 @@
+.SignUp {
+    text-align: center;
+    background-color: #282c34;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+.App-header {
+    background-color: #282c34;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.Name {
+    background-color: #282c34;
+    display: flex;
+    margin-left: 10px;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.nameText {
+    color: white;
+}
+
+.nameInput {
+    margin-left: 10px;
+}
+
+.IDFeatures {
+    background-color: #282c34;
+    display: flex;
+    margin-left: 10px;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.idText {
+    color: white;
+}
+
+.idInput {
+    margin-left: 10px;
+}
+
+.PWFeatures {
+    background-color: #282c34;
+    display: flex;
+    margin-left: 10px;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.pwText {
+    color: white;
+}
+
+.pwInput {
+    margin-left: 10px;
+}
+
+.Btn-Container {
+    background-color: #282c34;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.SignUpBtn {
+    background-color: #61dafb;
+    color: black;
+    font-size: 20px;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.RtnLoginBtn {
+    background-color: #61dafb;
+    color: black;
+    font-size: 20px;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

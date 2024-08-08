@@ -11,10 +11,10 @@ function SignUp() {
     const [pwInput, setPw] = useState("");
 
     const SignUpOnClick = () => {
-        axios.post('/member', {
-            memberName: nameInput,
-            memberId: nameInput,
-            memberPw: pwInput
+        axios.post('http://35.193.142.55:8080/member', {
+            "memberName": nameInput,
+            "memberId": idInput,
+            "memberPw": pwInput
         })
         .then(function (response) {
             alert(response)
@@ -22,6 +22,14 @@ function SignUp() {
         .catch(function (error) {
             alert(error);
         });
+        axios.get('http://35.193.142.55:8080/member')
+        
+        .then(function (response) {
+            alert(response)
+        })
+        .catch(function (error) {
+            alert(error);
+        });;
     };
 
     const RtnLoginBtnOnClick = () => {
@@ -41,7 +49,7 @@ function SignUp() {
     return (
         <div className="SignUp">
             <header className="App-header">
-                <h1 className="App-title">Sign-In</h1>
+                <h1 className="App-title">Sign-Up</h1>
             </header>
             <body>
                 <form>

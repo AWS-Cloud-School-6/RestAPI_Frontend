@@ -2,38 +2,45 @@ import axios from 'axios';
 import logo from './logo.svg';
 import './SignUp.css';
 import React, { useEffect, useState } from "react";
-import {useNavigate, redirect } from 'react-router-dom';
+import {useNavigate, redirect, Navigate } from 'react-router-dom';
 import { useRedirect } from 'react-admin';
+
+const SERVER_API = 'http://35.193.142.55:8080/member'
 
 function SignUp() {
     const [nameInput, setName] = useState("");
     const [idInput, setId] = useState("");
     const [pwInput, setPw] = useState("");
 
-    const SignUpOnClick = () => {
-        axios.post('http://35.193.142.55:8080/member', {
+    const redirect = useRedirect();
+    const navigate=useNavigate()
+
+  
+    const SignUpOnClick = (e) => {
+        //e.preventDefault();
+
+        axios.post(SERVER_API, {
             "memberName": nameInput,
             "memberId": idInput,
             "memberPw": pwInput
         })
-        .then(function (response) {
-            alert(response)
-        })
-        .catch(function (error) {
+        .then( (response) => {
+            //e.preventDefault();
+
+            setId("");
+            setName("");
+            setPw("");
+
+            alert(response.data.msg);
+            
+        }, e.preventDefault() )
+        .catch( (error)=> {
             alert(error);
         });
-        axios.get('http://35.193.142.55:8080/member')
-        
-        .then(function (response) {
-            alert(response)
-        })
-        .catch(function (error) {
-            alert(error);
-        });;
     };
 
-    const RtnLoginBtnOnClick = () => {
-        const redirect = useRedirect();
+    const RtnLoginBtnOnClick = (e) => {
+       
         redirect('/Login');
     };
 
@@ -74,6 +81,6 @@ function SignUp() {
 
         </div>
     );
-}
+}    
 
 export default SignUp;

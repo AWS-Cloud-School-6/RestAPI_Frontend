@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import SignUp from "./SignUp";
 
 function Login() {
     const [id, setId] = useState("");
@@ -14,7 +15,7 @@ function Login() {
         setPassword(e.target.value);
     }
 
-    const LoginFunc = () => {
+    const LoginFunc = (e) => {
         alert(id+password);
     }
 
@@ -33,7 +34,7 @@ function Login() {
                 <br />
 
                 <p class="signup-link">
-                    아직 회원이 아니신가요? <a href="/signup">회원가입</a>
+                    아직 회원이 아니신가요? <a href="/SignUp">회원가입</a>
                 </p>
             </form>
         </>

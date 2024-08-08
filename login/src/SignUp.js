@@ -1,17 +1,34 @@
+import axios from 'axios';
 import logo from './logo.svg';
 import './SignUp.css';
 import React, { useEffect, useState } from "react";
+import {useNavigate, redirect } from 'react-router-dom';
+import { useRedirect } from 'react-admin';
+
 function SignUp() {
     const [nameInput, setName] = useState("");
     const [idInput, setId] = useState("");
     const [pwInput, setPw] = useState("");
 
     const SignUpOnClick = () => {
-        alert("Sign Up Button Clicked" + nameInput + idInput + pwInput);
+        axios.post('/member', {
+            memberName: nameInput,
+            memberId: nameInput,
+            memberPw: pwInput
+        })
+        .then(function (response) {
+            alert(response)
+        })
+        .catch(function (error) {
+            alert(error);
+        });
     };
+
     const RtnLoginBtnOnClick = () => {
-        console.log("Return to Login Button Clicked");
+        const redirect = useRedirect();
+        redirect('/Login');
     };
+
     const handleChangeName = (e) => {
         setName(e.target.value);
     }
